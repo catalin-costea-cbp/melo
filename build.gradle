@@ -140,14 +140,14 @@ afterReleaseBuild.dependsOn publish
 
 publish.doLast {
     println "Upload du cookbook / snapshot : ${project.version.endsWith('-SNAPSHOT')}"
-    replacePatternInFile(new File('./cookbook/sfepi-services/metadata.rb')) {
+    replacePatternInFile(new File('./cookbook/melo/metadata.rb')) {
         it.replaceAll(~/\s*version\s*.*/, "\nversion '${version.replaceAll('-SNAPSHOT', '')}'")
     }
-    replacePatternInFile(new File('./cookbook/sfepi-services/attributes/default.rb')) {
-        it.replaceAll(~/\s*default\['cbp'\]\['apps'\]\['jee'\]\['sfepi-services'\]\['version'\].*/, "\ndefault['cbp']['apps']['jee']['sfepi-services']['version'] = '${version}'")
+    replacePatternInFile(new File('./cookbook/melo/attributes/default.rb')) {
+        it.replaceAll(~/\s*default\['cbp'\]\['apps'\]\['jee'\]\['melo'\]\['version'\].*/, "\ndefault['cbp']['apps']['jee']['melo']['version'] = '${version}'")
     }
     exec {
-        commandLine isUnix() ? "knife" : "knife.bat", "cookbook", "upload", "sfepi-services", "-o", "cookbook", project.version.endsWith('-SNAPSHOT') ? "" : "--freeze"
+        commandLine isUnix() ? "knife" : "knife.bat", "cookbook", "upload", "melo", "-o", "cookbook", project.version.endsWith('-SNAPSHOT') ? "" : "--freeze"
     }
 }
 //**********************************************************************************************************************

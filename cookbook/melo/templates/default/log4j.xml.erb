@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+    <appender name="troubleshooting" class="org.apache.log4j.FileAppender">
+        <param name="Threshold" value="WARN"/>
+        <param name="Append" value="true"/>
+        <param name="File" value="<%=node['cbp']['app']['jee']['logs']['directory']%>/melo-troubleshooting.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="<%= node['cbp']['jvm']['logs']['applications']['conversionpattern'] %>"/>
+        </layout>
+    </appender>
+    <appender name="activityLogfile" class="org.apache.log4j.FileAppender">
+        <param name="Threshold" value="INFO"/>
+        <param name="Append" value="true"/>
+        <param name="File" value="<%=node['cbp']['app']['jee']['logs']['directory']%>/melo-traces.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="<%= node['cbp']['jvm']['logs']['applications']['conversionpattern'] %>"/>
+        </layout>
+    </appender>
+    <root>
+        <level value="ALL"/>
+        <appender-ref ref="activityLogfile"/>
+        <appender-ref ref="troubleshooting"/>
+    </root>
+</log4j:configuration>

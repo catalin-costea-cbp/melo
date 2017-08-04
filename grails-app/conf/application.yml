@@ -3,7 +3,7 @@ server.context-path: '/melo'
 grails:
     profile: web
     codegen:
-        defaultPackage: sfepi-services
+        defaultPackage: 'cbp.melo'
     spring:
         transactionManagement:
             proxies: false
@@ -133,7 +133,7 @@ environments:
             password:
             url: jdbc:h2:mem:devDb
             dbCreate: create
-        sfepiJNDIConfig:
+        meloJNDIConfig:
             auth                       : Container
             type                       : cbp.util.core.jndi.Config
             factory                    : cbp.util.core.jndi.ConfigFactory
@@ -172,7 +172,7 @@ environments:
                     updateOnStart: true
                     contexts: db2
                     updateOnStartDefaultSchema: WWRHEMPF
-        sfepiJNDIConfig:
+        meloJNDIConfig:
             auth                        : Container
             type                        : cbp.util.core.jndi.Config
             factory                     : cbp.util.core.jndi.ConfigFactory
@@ -206,7 +206,7 @@ environments:
             username: A0PERSONNE
             password: ctolere01
             dbCreate:
-        sfepiJNDIConfig:
+        meloJNDIConfig:
             auth                       : Container
             type                       : cbp.util.core.jndi.Config
             factory                    : cbp.util.core.jndi.ConfigFactory
@@ -242,7 +242,7 @@ environments:
             username: A0PERSONNE
             password: ctolere02
             dbCreate:
-        sfepiJNDIConfig:
+        meloJNDIConfig:
             auth                        : Container
             type                        : cbp.util.core.jndi.Config
             factory                     : cbp.util.core.jndi.ConfigFactory
@@ -278,7 +278,7 @@ environments:
             username: A0PERSONNE
             password: c2lapp01
             dbCreate:
-        sfepiJNDIConfig:
+        meloJNDIConfig:
             auth                       : Container
             type                       : cbp.util.core.jndi.Config
             factory                    : cbp.util.core.jndi.ConfigFactory
